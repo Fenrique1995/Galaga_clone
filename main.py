@@ -11,18 +11,23 @@ pygame.init() #Se inicializa pygame
 
 pressed_keys = pygame.key.get_pressed()
 
+def controls(pressed_keys):
+    my_ship.movement(pressed_keys)
+
+
 running = True
 while running:
-    controls()
-    
-    intial_screen.fill((0, 0, 0)) 
-    my_ship.draw(intial_screen)
-    pygame.display.update()
-    
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN :
             print(event.pos)
         elif event.type == pygame.QUIT:
             running = False
+    
+    pressed_keys = pygame.key.get_pressed()
+    intial_screen.fill((0, 0, 0)) 
+    my_ship.draw(intial_screen)
+    controls(pressed_keys)
+    
+    pygame.display.update()
 
 pygame.quit() 

@@ -12,7 +12,7 @@ pygame.init() #Se inicializa pygame
 pressed_keys = pygame.key.get_pressed()
 
 def controls(pressed_keys):
-    my_ship.movement(pressed_keys)
+        my_ship.movement(pressed_keys)
 
 
 running = True

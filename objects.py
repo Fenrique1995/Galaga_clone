@@ -38,7 +38,7 @@ class Ship:
             if  keys[pygame.K_w] and keys[pygame.K_a]:
                 self.position_y -= 3
                 self.position_x -= 3
-        if self.position_x < 750 and self.position_y < 550:
+        if self.position_x < 750 and self.position_y > 50:
             if  keys[pygame.K_w] and keys[pygame.K_d]:
                 self.position_y -= 3
                 self.position_x += 3

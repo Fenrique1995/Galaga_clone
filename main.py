@@ -5,7 +5,7 @@ from pygame.locals import K_a, K_s, K_d, K_w, K_SPACE
 
 intial_screen = window()
 
-my_ship = Ship(100, 100, 'burnwing', 3)
+my_ship = Ship(400, 450, 'burnwing', 3)
 
 pygame.init() #Se inicializa pygame
 

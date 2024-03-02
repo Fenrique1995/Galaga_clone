@@ -2,3 +2,4 @@
 
 # Controls:
 #     W    A   S   D
+# SPACE for attack

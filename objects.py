@@ -42,4 +42,26 @@ class Ship:
             if  keys[pygame.K_w] and keys[pygame.K_d]:
                 self.position_y -= 3
                 self.position_x += 3
-        pygame.display.update()
+        pygame.display.flip()
+
+    def attack(self, screen, bullets):#Ataque de la nave
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_SPACE]:
+            new_bullet = Bullets(self.position_x + 35, self.position_y)  # Ajusta según el punto de origen deseado
+            bullets.append(new_bullet)
+
+class Bullets:#clase de la bala
+    def __init__(self, position_x, position_y):
+        self.position_x = position_x
+        self.position_y = position_y
+        self.sprite_01 = pygame.transform.scale(pygame.image.load('sprites/bullet_blackwing/M484BulletCollection1.png'), (5, 5))
+        self.sprite_02 = pygame.transform.scale(pygame.image.load('sprites/enemy_bullet/M484BulletCollection1.png'), (5, 5))
+    
+    def draw_bullet(self, screen):#dibuja la bala 
+        screen.blit(self.sprite_01, (self.position_x, self.position_y))
+        self.hitbox = (self.position_x, self.position_y, 5, 5)
+        pygame.draw.rect(screen, (0, 255, 0), self.hitbox, 2)
+    
+    def shoot(self):
+        self.position_y -= 1
+

@@ -6,7 +6,9 @@ from pygame.locals import K_a, K_s, K_d, K_w, K_SPACE
 
 intial_screen = window()
 
-my_ship = Ship(400, 450, 'burnwing', 3)
+my_ship = Ship(400, 450, 'burnwing', 3)#Player
+
+enemy_ship = Enemy(150,150,1,1)#Enemy Ship
 
 bullets = []#aca se alamacenan las balas
 
@@ -30,10 +32,12 @@ while running:
     pressed_keys = pygame.key.get_pressed()
     intial_screen.fill((0, 0, 0)) 
     my_ship.draw(intial_screen)
+    enemy_ship.draw(intial_screen)
+    enemy_ship.movement()
     controls(pressed_keys)
     
     for bullet in bullets[:]:  # Hacer una copia para poder modificar la lista
-        bullet.shoot()
+        bullet.shoot_up()
         if bullet.position_y < 0:  # Remueve la bala si sale de la pantalla
             bullets.remove(bullet)
         else:
